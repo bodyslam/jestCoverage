@@ -1,0 +1,51 @@
+{
+  "name": "jestcoverageissue",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "tsc",
+    "build:conf": "n-copy --source \"src/conf\" --destination \"dist/conf\" \"**/*.json\"",
+    "build:prod": "run-s build tslint:ci test",
+    "build:watch": "tsc -w",
+    "cz": "git cz",
+    "tslint": "tslint -c ./tslint.json --project ./tsconfig.json -e ./types",
+    "tslint:ci": "npm run tslint -- -t checkstyle -o checkstyle.xml --force",
+    "prebuild": "n-clean dist",
+    "postbuild": "npm run build:conf",
+    "release": "standard-version",
+    "sonarqube": "sonarqube-scanner-node",
+    "serve": "node ./dist/index.js",
+    "serve:local": "cross-env NODE_ENV=local nodemon --verbose",
+    "start": "run-s build:prod serve",
+    "start:local": "run-s build serve:local",
+    "test": "cross-env NODE_ENV=qa jest --config ./jest.config.json ",
+    "tomtest": "cross-env NODE_ENV=qa jest --coverage --config ./jest.config.json ",
+    "test:watch": "npm run test --watch"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/jest": "^23.3.1",
+    "@types/node": "^10.1.2",
+    "@types/zxcvbn": "^4.4.0",
+    "commitizen": "^2.9.6",
+    "cross-env": "^5.1.5",
+    "cz-customizable": "^5.2.0",
+    "jest": "^23.4.2",
+    "jest-sonar-reporter": "^2.0.0",
+    "nodemon": "^1.17.4",
+    "npm-build-tools": "^2.2.5",
+    "npm-run-all": "^4.1.3",
+    "sonarqube-scanner-node": "^0.0.7",
+    "standard-version": "^4.3.0",
+    "ts-jest": "^22.4.6",
+    "tslint": "^5.10.0",
+    "tslint-microsoft-contrib": "^5.0.3",
+    "typescript": "^2.9.2"
+  },
+  "dependencies": {
+    "routing-controllers": "^0.7.7",
+    "zxcvbn": "^4.4.2"
+  }
+}

@@ -1,0 +1,37 @@
+{
+    "collectCoverage": true,
+    "coverageReporters": [
+      "cobertura",
+      "json",
+      "lcov"
+    ],
+    "coverageThreshold": {
+      "global": {
+        "branches": 75,
+        "functions": 75,
+        "lines": 75,
+        "statements": 75
+      }
+    },
+    "moduleDirectories": [
+      "src",
+      "node_modules"
+    ],
+    "moduleFileExtensions": [
+      "ts",
+      "js"
+    ],
+    "roots": [
+      "<rootDir>/src/",
+      "<rootDir>/tests/"
+    ],
+    "transform": {
+      ".ts": "ts-jest"
+    },
+    "testEnvironment": "node",
+    "testMatch": [
+      "<rootDir>/tests/**/*.(spec|test).ts"
+    ],
+    "testResultsProcessor": "jest-sonar-reporter"
+  }
+  

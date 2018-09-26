@@ -1,0 +1,38 @@
+# build
+dist
+types
+
+# config
+src/conf/environment/local.json
+
+# NPM
+.npm_cache
+node_modules/
+npm-debug.log
+
+# yarn
+yarn-error.log
+
+# tests
+coverage/
+test-results*
+checkstyle.xml
+
+# logs
+*.log
+
+# sonar
+.scannerwork/
+reports/
+test-report.xml
+.reports/
+
+# packs
+be-nj-foundation-*.tgz
+
+# other
+*.map
+.vscode/
+.idea/
+run.sh
+**/.DS_Store
